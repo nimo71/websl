@@ -1,0 +1,11 @@
+/target
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+.DS_Store
+example-jetty-embedded-9.1.2.v20140210-sources/
