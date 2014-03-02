@@ -1,17 +1,19 @@
 (ns websl.core
-	(:use websl.routes))
+	(:use websl.jetty
+        websl.routes
+        websl.request
+        websl.response))
 
 (defn -main [& args]
-  	(service {:port 8080}
-  		(route GET "/index.html" (static-file "index.html"))
-  		(route GET "/other.html" (static-file "other.html"))
-  		(route GET "/js/main.js" (static-file "/js/main.js"))))
+  (service {:port 8080}
+    (route GET "/index.html" (-> "index.html" static text-html ok))
+    (route GET "/other.html" (-> "other.html" static text-html ok))
+    (route GET "/js/main.js" (-> "/js/main.js" static application-javascript ok))
+    (default (-> "not-found.html" static text-html not-found))))
 
 
 ;TODO:
-;	response map interpreted by handler to build up correct response code, mime-type, encoding, headers...
-;	header map
-; 	doto
+; Create form using ClojureScript on index.html
 ;	ClojureScript to create responsive design dsl:
 ;		- page snippets which resize to % of parent based on client screen size
 ;		- define snippets completely in ClojureScript

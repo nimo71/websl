@@ -4,8 +4,7 @@
   	:license {:name "Eclipse Public License"
         :url "http://www.eclipse.org/legal/epl-v10.html"}
     :plugins [
-        [lein-cljsbuild "1.0.2"]
-        [lein-autoreload "0.1.0"]]
+        [lein-cljsbuild "1.0.2"]]
   	:dependencies [
   		  [org.clojure/clojure "1.5.1"]
   		  [org.eclipse.jetty.aggregate/jetty-all "9.1.2.v20140210"]
